@@ -1,6 +1,7 @@
 package com.example.eTestCenter.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,32 +11,15 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Schema(description = "Phản hồi chuẩn từ API")
 public class ApiResponse<T> {
-    private int code = 1000;
-    private String message;
-    private T data;
 
-    public int getCode() {
-        return code;
-    }
+    @Schema(example = "200", description = "Mã trạng thái")
+    int code;
 
-    public void setCode(int code) {
-        this.code = code;
-    }
+    @Schema(example = "register successfully", description = "Thông điệp phản hồi")
+    String message;
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
+    @Schema(description = "Dữ liệu thực tế trả về")
+    T data;
 }

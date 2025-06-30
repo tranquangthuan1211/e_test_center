@@ -29,6 +29,7 @@ public class ApplicationConfig {
                         .phone("123456789")
                         .password(passwordEncoder.encode("12112004"))
                         .roles(roles)
+                        .email("tranquangthuan132@gmail.com")
                         .build();
                 userRepository.save(user);
                 log.warn("admin user has been created with default password: admin, please change it");
