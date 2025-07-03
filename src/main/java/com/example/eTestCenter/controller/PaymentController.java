@@ -4,10 +4,9 @@ import com.example.eTestCenter.dto.request.PaymentRequest;
 import com.example.eTestCenter.dto.response.ApiResponse;
 import com.example.eTestCenter.entity.PaymentReceipt;
 import com.example.eTestCenter.service.PaymentReceiptService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/payments")
@@ -24,6 +23,14 @@ public class PaymentController {
                 .code(200)
                 .message("successfully")
                 .data(paymentReceiptService.createReceipt(request))
+                .build();
+    }
+    @GetMapping
+    ApiResponse<List<PaymentReceipt>> getAllPayments(){
+        return ApiResponse.<List<PaymentReceipt>>builder()
+                .data(paymentReceiptService. getAllReceipts())
+                .code(200)
+                .message("successfully")
                 .build();
     }
 }

@@ -12,4 +12,5 @@ public class PaymentRequest {
     private String status;
     private String lnk;
     private String userId;
+    private String formId;
 }
