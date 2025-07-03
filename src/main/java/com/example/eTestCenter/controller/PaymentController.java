@@ -1,5 +1,6 @@
 package com.example.eTestCenter.controller;
 
+import com.example.eTestCenter.dto.request.PaymentRequest;
 import com.example.eTestCenter.dto.response.ApiResponse;
 import com.example.eTestCenter.entity.PaymentReceipt;
 import com.example.eTestCenter.service.PaymentReceiptService;
@@ -18,7 +19,7 @@ public class PaymentController {
     }
 
     @PostMapping
-    ApiResponse<PaymentReceipt> createPayment(@RequestBody PaymentReceipt request){
+    ApiResponse<PaymentReceipt> createPayment(@RequestBody PaymentRequest request){
         return ApiResponse.<PaymentReceipt>builder()
                 .code(200)
                 .message("successfully")
