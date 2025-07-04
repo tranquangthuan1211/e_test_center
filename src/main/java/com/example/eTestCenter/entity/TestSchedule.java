@@ -22,5 +22,6 @@ public class TestSchedule {
     private String address;
     private int registration_count;
     private int max_count;
+    private String name_test;
 
 }
